@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Global Infrastructure & Hazards Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <section class="intro">
+        <div class="heading">
+          <h1>Global Infrastructure & Hazards</h1>
+          <a class="process-book-link" href="process_book.html" target="_blank" rel="noopener">
+            View Process Book ↗
+          </a>
+        </div>
+        <p>
+          This project aggregates worldwide datasets covering earthquakes,
+          transportation nodes, energy infrastructure, and national GDP metrics.
+          The goal is to build an interactive map that visualizes these data
+          layers together.
+        </p>
+      </section>
+
+      <section class="map-section">
+        <h2>Interactive World Map</h2>
+        <p>
+          The first layer of our map includes data from tsunamis and earthquakes, including the
+            date, magnitude, depth, and location.
+        </p>
+        <div class="map-container">
+          <div id="global-map" role="img" aria-label="World map with data layers"></div>
+        </div>
+      </section>
+
+      <footer>
+        Upcoming milestone: integrate transportation, energy, and GDP related data. It will also
+          provide a better measure to differentiate between earthquakes and tsunamis.
+      </footer>
+    </main>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+      defer
+    ></script>
+    <script
+      src="https://d3js.org/d3.v7.min.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script src="src/main.js" defer></script>
+  </body>
+</html>
+

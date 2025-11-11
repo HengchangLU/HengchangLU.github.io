@@ -1,0 +1,13 @@
+{
+  "name": "disasters-inequality",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "clean:data": "node scripts/clean_data.js",
+    "build:processed": "node scripts/build_processed.js",
+    "start": "node scripts/dev-server.js"
+  },
+  "dependencies": {
+    "d3-dsv": "^3.0.1"
+  }
+}

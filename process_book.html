@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disasters and Vulnerability - Process Book</title>
+    <link rel="stylesheet" href="process_book.css" />
+  </head>
+  <body>
+    <h1>Disasters and Vulnerability</h1>
+
+    <div class="info-section">
+      <h2>Basic Info</h2>
+      <p><strong>Title:</strong> Disasters and Vulnerability</p>
+      <p><strong>Names:</strong> Barrett Lin, Hengchang Lu</p>
+      <p><strong>Email:</strong> b.a.lin@wustl.edu, hengchang@wustl.edu</p>
+      <p><strong>ID:</strong> 508753, 508777</p>
+    </div>
+
+    <h2>Background and Motivation</h2>
+    <p>
+      <strong>Barrett:</strong> Natural disasters have always been an interesting concept to me
+      as they simply happen with or without human interaction. While I haven't done much
+      actual research into the effects they have on place, I can always remember seeing
+      horrific details on the news both on the cost of human life as well as disaster relief
+      efforts. I remember when I was in high school a snowstorm hit where I lived in Texas,
+      and, without the proper infrastructure to handle such cold, people were without clean
+      water and electricity for weeks. The key motivation for this project comes from looking
+      at how natural disasters have an unequal impact on locations based on their preparedness
+      for such disasters, seen through general variables like GDP and population density, as
+      well as more specific variables like relevant infrastructure. The hope for this project
+      is that it reveals important insights that can be acted on in order to mitigate the costs
+      of natural disasters in places affected the most.
+    </p>
+
+    <h2>Project Objectives</h2>
+    <p>The primary questions we are attempting to answer with our visualization are:</p>
+    <ul>
+      <li>
+        How do natural disasters affect countries of different population density, GDP, and
+        infrastructure strength?
+      </li>
+      <li>Are natural disasters a key reason that places might struggle and remain in poverty?</li>
+      <li>
+        How fast are countries able to bounce back from natural disasters and is this dependent on
+        existing infrastructure?
+      </li>
+    </ul>
+
+    <p>
+      Through answering these questions, we want to learn the relationship between natural disasters
+      and the aforementioned variables. We want to learn these aspects so that recovery efforts can
+      be more targeted, and the places that desperately need help receive it and can develop the
+      tools to prevent future disaster. Some benefits that could come from this:
+    </p>
+    <ul>
+      <li>
+        Extra government assistance to places heavily affected by natural disasters, either through
+        quicker support after the fact or building up infrastructure and wealth prior
+      </li>
+      <li>
+        Understand places of high risk, both in likelihood of natural disasters occurring and
+        inability/lack of speed in recovery, encouraging re-location of inhabitants or more safety
+        procedures depending
+      </li>
+      <li>
+        Understand how natural disasters can affect financial health of specific locations,
+        potentially giving companies insight on building costs/insurance plans
+      </li>
+    </ul>
+
+    <h2>Data</h2>
+    <p>
+      We have found a lot of geospatial dataset on kaggle that are useful for our project. The core
+      dataset is the global earthquake - tsunami risk assessment dataset
+      (<a
+        href="https://www.kaggle.com/datasets/ahmeduzaki/global-earthquake-tsunami-risk-assessment-dataset"
+        target="_blank"
+        >https://www.kaggle.com/datasets/ahmeduzaki/global-earthquake-tsunami-risk-assessment-dataset</a
+      >) containing geospatial data for over 100 historical earthquake events from 1900 to 2020 with
+      a focus on tsunami generation potential. It includes key features like earthquake magnitude,
+      focal depth, and epicenter coordinates. Data quality is especially good for post-1960 events
+      due to improved monitoring.
+    </p>
+
+    <p>
+      The world GDP dataset
+      (<a
+        href="https://www.kaggle.com/datasets/zgrcemta/world-gdpgdp-gdp-per-capita-and-annual-growths"
+        target="_blank"
+        >https://www.kaggle.com/datasets/zgrcemta/world-gdpgdp-gdp-per-capita-and-annual-growths</a
+      >), based on World Bank data, is included as a core dataset to assess the socioeconomic
+      vulnerability of countries to natural disasters like earthquakes and tsunamis. It provides
+      annual metrics from 1960 onward. This dataset is crucial because GDP significantly influences
+      a country's ability to prepare for, withstand, and recover from severe natural disasters.
+      Lower GDP often correlates with weaker infrastructure, limited emergency resources, and high
+      casualty rates. We can use this to analyze how economic status shapes disaster impact and
+      recovery speed.
+    </p>
+
+    <p>
+      To enhance our analysis of how earthquakes and tsunamis impact a region's key infrastructure,
+      we incorporate more geospatial datasets on critical assets near epicenters or coastlines. This
+      allows us to model risks based on proximity. The dataset are:
+    </p>
+    <ul>
+      <li>
+        <strong>Global aviation hubs</strong>
+        (<a
+          href="https://www.kaggle.com/datasets/harshalhonde/global-aviation-hub-dataset-of-airports-worldwide"
+          target="_blank"
+          >https://www.kaggle.com/datasets/harshalhonde/global-aviation-hub-dataset-of-airports-worldwide</a
+        >): comprehensive records of airports with identifiers, locations, and elevation, etc.
+        Airports near coastlines/epicenters are vital for evacuation/relief but vulnerable to
+        tsunamis or earthquake damage.
+      </li>
+      <li>
+        <strong>World port data</strong>
+        (<a
+          href="https://www.kaggle.com/datasets/rajkumarpandey02/world-wide-port-index-data"
+          target="_blank"
+          >https://www.kaggle.com/datasets/rajkumarpandey02/world-wide-port-index-data</a
+        >): details on world's major harbors/ports. Ports are prime tsunami targets due to the fact
+        that waves are amplified in harbors. Disruptions in harbors cascade to trade-dependent
+        economies.
+      </li>
+      <li>
+        <strong>Global powerplant database</strong>
+        (<a href="https://www.kaggle.com/datasets/ramjasmaurya/global-powerplants" target="_blank"
+          >https://www.kaggle.com/datasets/ramjasmaurya/global-powerplants</a
+        >): facilities across all countries, with capacity and types. Shallow depth earthquakes
+        threaten powerplants, and especially endanger hydro dams (flooding/collapse). Low GDP areas
+        with vulnerable/aging plants suffer blackouts and health risks.
+      </li>
+      <li>
+        <strong>Nuclear power plants</strong>
+        (<a
+          href="https://www.kaggle.com/datasets/liananapalkova/nuclear-power-plants"
+          target="_blank"
+          >https://www.kaggle.com/datasets/liananapalkova/nuclear-power-plants</a
+        >): Earthquakes and tsunamis pose severe risks to nuclear facilities, like in 2011 Fukushima
+        disaster. It could cause meltdowns and long-term contamination.
+      </li>
+    </ul>
+
+    <h2>Data Processing</h2>
+    <p>
+      We will first organize key information for our raw data. The global earthquake tsunami dataset
+      includes earth magnitude, focal depth, epicenter coordinates, and tsunami generation
+      potential. World gdp dataset contains annual metrics like total national/regional GDP, GDP per
+      capita, and growth rates. Infrastructure datasets comprise global aviation hubs, world ports,
+      powerplants, and nuclear power plants
+    </p>
+
+    <p>
+      We need to convert all datasets to compatible base formats like GeoJSON. We need to also unify
+      the coordinate system.
+    </p>
+
+    <p>
+      Handle missing values. We need to label missing records in the earthquake-tsunami data before
+      1960. For GDP data, we need to address annual missing values in small countries and regions.
+      For missing key infrastructure attributes, we can supplement information via official
+      databases.
+    </p>
+
+    <p>
+      We also need to remove some unreasonable records in the earthquake data. For example,
+      micro-earthquakes with magnitude &lt; 2.0 can barely be felt and are excluded from analysis.
+      Also we should remove extreme outliers in the GDP data. Should there be sharp annual declines
+      or increases caused by wars or pandemics, we want to store them separately.
+    </p>
+
+    <p>
+      Then we link scattered datasets by the dimensions of geography and time to form a
+      comprehensive dataset usable for visualization. The core correlation logics are: 1. Spatial
+      correlation. Based on latitude and longitude, we need to calculate straight line distance
+      between airports, ports, powerplants and epicenters to determine if they fall within disaster
+      impact zones. We need to also add a temporal correlation link that binds the time at which a
+      disaster takes place and the socioeconomic situation of this region at the same time.
+    </p>
+
+    <p>
+      Eventually, we need two fused datasets. One is the disaster-economy table where each row
+      includes year, country, earthquake magnitude, tsunami potential, total GDP, and GDP per
+      capita. The other one is the disaster-infrastructure table where each row includes year,
+      country, disaster type, affected infrastructure type, number of facilities.
+    </p>
+
+    <h2>Visualization Design</h2>
+
+    <div class="design-grid">
+      <div class="design-item">
+        <img src="images/1.jpg" alt="Visualization Design 1" />
+        <p>Figure 1</p>
+      </div>
+      <div class="design-item">
+        <img src="images/2.jpg" alt="Visualization Design 2" />
+        <p>Figure 2</p>
+      </div>
+      <div class="design-item">
+        <img src="images/3.jpg" alt="Visualization Design 3" />
+        <p>Figure 3</p>
+      </div>
+      <div class="design-item">
+        <img src="images/4.jpg" alt="Visualization Design 4" />
+        <p>Figure 4</p>
+      </div>
+      <div class="design-item">
+        <img src="images/5.jpg" alt="Visualization Design 5" />
+        <p>Figure 5</p>
+      </div>
+    </div>
+
+    <h2>Milestone 1</h2>
+    <div class="design-grid">
+      <div class="design-item">
+        <img class="milestone" src="images/milestone1.png" alt="Milestone 1 Prototype" />
+        <p>Milestone 1 Prototype</p>
+      </div>
+    </div>
+
+    <h3>Must-Have Features</h3>
+    <ul>
+      <li>
+        <strong>Time Slider:</strong> With access to natural disaster data (tsunamis/earthquakes),
+        GDP, population density, and infrastructure across many years, a time slider is necessary to
+        show the change in relationship over time.
+      </li>
+      <li>
+        <strong>Filters:</strong> Filters for the map including isolation of all key features based
+        on the dropdown menu
+      </li>
+    </ul>
+
+    <h3>Optional Features</h3>
+    <ul>
+      <li>
+        <strong>Playable Feature:</strong> The visualization can play (like a time-lapse) of how the
+        changes happen over time.
+      </li>
+      <li>
+        <strong>Earthquake/Tsunami Effect:</strong> Instead of a static point or color scale change,
+        locations where these disasters happen could be like red shockwaves coming out (based on
+        magnitude) or blue waves crashing into the location for tsunamis
+      </li>
+    </ul>
+
+    <h2>Project Schedule</h2>
+    <div class="schedule-table">
+      <div class="schedule-item">
+        <strong>10/26-11/1 (Proposal Due 10/27)</strong>
+        <ul>
+          <li>Finalize and submit proposal</li>
+          <li>Verify accessibility and completeness of all datasets</li>
+          <li>Assign team roles</li>
+        </ul>
+      </div>
+
+      <div class="schedule-item">
+        <strong>11/2-11/8</strong>
+        <ul>
+          <li>Raw data cleaning</li>
+          <li>Standardize data formats</li>
+        </ul>
+      </div>
+
+      <div class="schedule-item">
+        <strong>11/9-15 (Milestone 1 Due 11/10)</strong>
+        <ul>
+          <li>Submit milestone 1 + data processing log</li>
+          <li>Develop feature engineering</li>
+          <li>Start basic visualization</li>
+        </ul>
+      </div>
+
+      <div class="schedule-item">
+        <strong>11/16-11/22</strong>
+        <ul>
+          <li>Build base visualization framework, load geospatial data and basic map rendering</li>
+          <li>Prototype of core interactions, build time slider and dropdown filters</li>
+          <li>Preliminary data analysis, identify key trends</li>
+        </ul>
+      </div>
+
+      <div class="schedule-item">
+        <strong>11/23-11/29 (Milestone 2 Due 11/24)</strong>
+        <ul>
+          <li>Submit milestone 2</li>
+          <li>Optimize interactions, add time-lapse feature and refine visual effects</li>
+          <li>Test and debug</li>
+        </ul>
+      </div>
+
+      <div class="schedule-item">
+        <strong>11/30-12/6 (Final Project Presentations Due 11/30, 12/5)</strong>
+        <ul>
+          <li>Prepare presentation slides</li>
+          <li>Rehearse presentations and refine storytelling</li>
+          <li>Make final adjustments</li>
+        </ul>
+      </div>
+
+      <div class="schedule-item">
+        <strong>12/6 - 12/18 (Final Due Date 12/18)</strong>
+        <ul>
+          <li>Integrate all deliverables</li>
+          <li>Conduct final quality check</li>
+          <li>Submit all files</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
+

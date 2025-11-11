@@ -1,0 +1,131 @@
+:root {
+  color-scheme: light dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+}
+
+main {
+  max-width: 960px;
+  width: 100%;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 16px;
+  padding: 2.5rem;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 20px 60px rgba(8, 47, 73, 0.45);
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin: 0 0 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+h1 + .process-book-link {
+  display: block;
+  margin-top: -1.5rem;
+}
+
+h1,
+.process-book-link {
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+@media (min-width: 640px) {
+  .heading {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}
+
+.process-book-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(94, 234, 212, 0.5);
+  background: rgba(45, 212, 191, 0.12);
+  color: #5eead4;
+}
+
+.process-book-link:hover {
+  color: #0f172a;
+  background: rgba(94, 234, 212, 0.85);
+  border-color: rgba(45, 212, 191, 0.85);
+  transform: translateY(-1px);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  margin: 2rem 0 1rem;
+  letter-spacing: 0.04em;
+}
+
+p {
+  line-height: 1.75;
+  margin: 0 0 1.5rem;
+}
+
+.map-container {
+  margin-top: 1.5rem;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  box-shadow: inset 0 0 30px rgba(8, 47, 73, 0.35);
+}
+
+#global-map {
+  width: 100%;
+  height: 520px;
+}
+
+.map-error {
+  padding: 1.5rem;
+  text-align: center;
+  color: #fca5a5;
+  font-size: 1rem;
+}
+
+.leaflet-popup-content-wrapper {
+  background: rgba(15, 23, 42, 0.92);
+  color: #e2e8f0;
+}
+
+.leaflet-popup-content strong {
+  color: #38bdf8;
+}
+
+footer {
+  margin-top: 2.5rem;
+  font-size: 0.85rem;
+  color: rgba(226, 232, 240, 0.7);
+  text-align: center;
+}
+
