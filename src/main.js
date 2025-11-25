@@ -533,7 +533,7 @@
           });
 
           const yearAirports = airportsByYear[year] || [];
-          shuffleArray(yearAirports).slice(0, MAX_INFRASTRUCTURE).forEach((airport) => {
+          yearAirports.slice(0, MAX_INFRASTRUCTURE).forEach((airport) => {
             const marker = L.marker([airport.latitude, airport.longitude], {
               icon: getInfrastructureIcon("airport")
             })
@@ -542,7 +542,7 @@
             airportMarkers.push(marker);
           });
 
-          shuffleArray(airportsNoYear).slice(0, MAX_INFRASTRUCTURE).forEach((airport) => {
+          airportsNoYear.slice(0, MAX_INFRASTRUCTURE).forEach((airport) => {
             const marker = L.marker([airport.latitude, airport.longitude], {
               icon: getInfrastructureIcon("airport")
             })
@@ -552,7 +552,7 @@
           });
 
           const yearPorts = portsByYear[year] || [];
-          shuffleArray(yearPorts).slice(0, MAX_INFRASTRUCTURE).forEach((port) => {
+          yearPorts.slice(0, MAX_INFRASTRUCTURE).forEach((port) => {
             const marker = L.marker([port.latitude, port.longitude], {
               icon: getInfrastructureIcon("port")
             })
@@ -560,7 +560,7 @@
               .addTo(portLayer);
             portMarkers.push(marker);
           });
-          shuffleArray(portsNoYear).slice(0, MAX_INFRASTRUCTURE).forEach((port) => {
+          portsNoYear.slice(0, MAX_INFRASTRUCTURE).forEach((port) => {
             const marker = L.marker([port.latitude, port.longitude], {
               icon: getInfrastructureIcon("port")
             })
@@ -570,7 +570,7 @@
           });
 
           const yearPowerplants = powerplantsByYear[year] || [];
-          shuffleArray(yearPowerplants).slice(0, MAX_INFRASTRUCTURE).forEach((plant) => {
+          yearPowerplants.slice(0, MAX_INFRASTRUCTURE).forEach((plant) => {
             const marker = L.marker([plant.latitude, plant.longitude], {
               icon: getInfrastructureIcon("powerplant")
             })
@@ -578,7 +578,7 @@
               .addTo(powerplantLayer);
             powerplantMarkers.push(marker);
           });
-          shuffleArray(powerplantsNoYear).slice(0, MAX_INFRASTRUCTURE).forEach((plant) => {
+          powerplantsNoYear.slice(0, MAX_INFRASTRUCTURE).forEach((plant) => {
             const marker = L.marker([plant.latitude, plant.longitude], {
               icon: getInfrastructureIcon("powerplant")
             })
