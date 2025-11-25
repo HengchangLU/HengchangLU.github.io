@@ -79,7 +79,7 @@
         >https://www.kaggle.com/datasets/ahmeduzaki/global-earthquake-tsunami-risk-assessment-dataset</a
       >) containing geospatial data for over 100 historical earthquake events from 1900 to 2020 with
       a focus on tsunami generation potential. It includes key features like earthquake magnitude,
-      focal depth, and epicenter coordinates. Data quality is especially good for post-1960 events
+      focal depth, and epicenter coordinates. Data quality is especially robust for post-1960 events
       due to improved monitoring.
     </p>
 
@@ -243,6 +243,77 @@
         <strong>Earthquake/Tsunami Effect:</strong> Instead of a static point or color scale change,
         locations where these disasters happen could be like red shockwaves coming out (based on
         magnitude) or blue waves crashing into the location for tsunamis
+      </li>
+    </ul>
+
+    <h2>Milestone 2</h2>
+    <p>
+      As of Milestone 2, we have finalized all must-have features from Milestone 1
+      and made progress on additional features and optimizations.
+    </p>
+
+    <h3>Completed Features</h3>
+    <ul>
+      <li>
+        <strong>Time Slider (Must-Have):</strong> Fully implemented with comprehensive functionality:
+        <ul>
+          <li>Interactive slider at the bottom of the map for month-by-month navigation</li>
+          <li>Current month-year display prominently shown (e.g., "Jan 2020")</li>
+          <li>Manual dragging capability with smooth month transitions</li>
+          <li>Automatic time range: 2001-2020 (240 months total)</li>
+          <li>Data filtered to only show events from 2001 onwards for better data quality</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Layer Filters (Must-Have):</strong> Complete layer control system:
+        <ul>
+          <li>Toggleable layers for Earthquakes & Tsunamis, Airports, Ports, Power Plants, and Nuclear Plants</li>
+          <li>Layers can be shown/hidden independently</li>
+          <li>Year-based filtering for earthquakes and infrastructure (if year data available)</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Time-Lapse Playback (Optional Feature):</strong> Implemented play/pause functionality:
+        <ul>
+          <li>Play button automatically advances through months at 0.5 seconds per month</li>
+          <li>Pause button stops playback</li>
+          <li>Auto-play pauses when user manually interacts with slider</li>
+          <li>Continuous looping from December 2020 back to January 2001</li>
+        </ul>
+      </li>
+      <li>
+        <strong>GDP Choropleth Visualization:</strong> Enhanced economic data visualization with ranking-based coloring:
+        <ul>
+          <li>Ranking-based color assignment ensures highest GDP countries get darkest colors, lowest get lightest</li>
+          <li>For each year, countries are ranked by GDP (rank 0 = lowest, rank 1 = highest)</li>
+          <li>Continuous color interpolation with 16 color stops for high granularity</li>
+          <li>High-contrast color scale (white → yellow → orange → red → purple → blue → navy) for obvious GDP differences</li>
+          <li>Year-synchronized GDP display that updates with the time slider</li>
+          <li>Interactive popups showing GDP total and GDP per capita for each country</li>
+          <li>Legend included showing GDP color gradient from low to high</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Enhanced User Controls:</strong> Additional interactive features:
+        <ul>
+          <li><strong>Map Lock Button:</strong> Prevents map panning/zooming when interacting with time slider</li>
+          <li><strong>Fullscreen Button:</strong> Allows users to expand the map to fullscreen mode</li>
+          <li><strong>Legend:</strong> Comprehensive legend in bottom-left showing GDP color scale and earthquake type indicators</li>
+          <li>All controls prevent accidental map movement during interaction</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Data Integration:</strong> Complete multi-dataset visualization:
+        <ul>
+          <li>Earthquake events (magnitude > 2.0) with enhanced magnitude-based sizing - each magnitude unit adds 4px to radius for highly visible size differences</li>
+          <li>Color coding: brown circles for earthquakes, blue circles for tsunamis</li>
+          <li>Month-based filtering: earthquakes shown only for the selected month</li>
+          <li>Infrastructure markers: airports (green), ports (cyan), power plants (amber), nuclear plants (red)</li>
+          <li>Spatial correlation showing infrastructure within 100km of earthquake epicenters</li>
+          <li>Temporal correlation linking disasters to GDP data for the same year (GDP data organized by year, earthquakes by month)</li>
+          <li>Infrastructure without year data remains visible; infrastructure with year data filters by selected year</li>
+          <li>Legend included showing earthquake type colors (brown for earthquakes, blue for tsunamis)</li>
+        </ul>
       </li>
     </ul>
 
